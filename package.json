@@ -1,0 +1,40 @@
+{
+  "name": "short-url-project",
+  "version": "1.0.0",
+  "description": "A small production-quality REST API for shortening URLs.",
+  "main": "dist/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+    "build": "npm run clean && tsc -p tsconfig.build.json",
+    "start": "node dist/server.js",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate deploy"
+  },
+  "keywords": [
+    "url-shortener",
+    "fastify",
+    "prisma",
+    "sqlite"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^6.16.3",
+    "fastify": "^5.6.1",
+    "nanoid": "^5.1.5",
+    "zod": "^4.1.11"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "prisma": "^6.16.3",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}
